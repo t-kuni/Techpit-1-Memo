@@ -39,13 +39,77 @@ sudo chown -R kuni:kuni melpit
 アプリの`.env`を編集する
 
 ```
+APP_NAME=Melpit
 DB_HOST=mysql
+DB_PASSWORD=root
 ```
 
-表示されればOK
+ロケールとタイムゾーンの変更
+`config/app.php`
+
+```
+    'timezone' => 'Asia/Tokyo',
+    'locale' => 'ja',
+```
+
+DBを作成する
+```
+http://localhost:8081/
+```
+サーバ mysql
+ユーザ root
+パスワード root
+
+laravelでDB作成
+
+Laravel動作確認
 
 `http://localhost/`
 
+
+# 認証機能
+
+## 会員登録・ログイン・ログアウト
+
+```
+docker-compose exec workspace bash
+composer require laravel/ui:2.1.0
+php artisan ui vue --auth
+npm install
+npm run dev
+php artisan migrate
+```
+
+（実装）
+
+バリデーションを日本語化
+https://github.com/caouecs/Laravel-lang/blob/master/src/ja/validation.php
+
+```
+mkdir resources/lang/ja
+curl -o resources/lang/ja/auth.php https://raw.githubusercontent.com/caouecs/Laravel-lang/master/src/ja/auth.php
+curl -o resources/lang/ja/pagination.php https://raw.githubusercontent.com/caouecs/Laravel-lang/master/src/ja/pagination.php
+curl -o resources/lang/ja/passwords.php https://raw.githubusercontent.com/caouecs/Laravel-lang/master/src/ja/passwords.php
+curl -o resources/lang/ja/validation-inline.php https://raw.githubusercontent.com/caouecs/Laravel-lang/master/src/ja/validation-inline.php
+curl -o resources/lang/ja/validation.php https://raw.githubusercontent.com/caouecs/Laravel-lang/master/src/ja/validation.php
+```
+
+
+画面を開いて確認
+
+```
+http://localhost/register
+```
+
+## パスワードリセット
+
+mailtrapのセットアップ
+
+リセットメールの日本語化
+
+```
+php artisan vendor:publish --tag=laravel-notifications
+```
 
 ## メモ
 
