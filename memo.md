@@ -15,10 +15,15 @@ cd laradock
 cp env-example .env
 ```
 
-`.env`を編集
+Laradockの`.env`を編集
 
 ```
 APP_CODE_PATH_HOST=../melpit
+```
+
+xdebugも？
+```
+PHP_FPM_INSTALL_XDEBUG=true
 ```
 
 ```
@@ -52,6 +57,12 @@ DB_PASSWORD=root
     'locale' => 'ja',
 ```
 
+ストレージのリンクを貼る
+
+```
+php artisan storage:link
+```
+
 DBを作成する
 ```
 http://localhost:8081/
@@ -74,10 +85,18 @@ Laravel動作確認
 ```
 docker-compose exec workspace bash
 composer require laravel/ui:2.1.0
-php artisan ui vue --auth
+php artisan ui --auth
 npm install
 npm run dev
 php artisan migrate
+```
+
+Modelの移動
+seederとfactory
+
+```
+php artisan make:seeder UserSeeder
+php artisan make:factory UserFactory
 ```
 
 （実装）
@@ -109,6 +128,25 @@ mailtrapのセットアップ
 
 ```
 php artisan vendor:publish --tag=laravel-notifications
+```
+
+## プロフィール編集
+
+scss, jsのビルド方法
+javascriptのデバッグ方法
+
+```
+php artisan make:request Mypage/Profile/EditRequest
+```
+
+intervention imageの使い方
+
+```
+composer require intervention/image:2.5.1
+```
+
+```
+php artisan migrate:refresh --seed
 ```
 
 ## メモ
