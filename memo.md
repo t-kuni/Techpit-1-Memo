@@ -149,6 +149,72 @@ composer require intervention/image:2.5.1
 php artisan migrate:refresh --seed
 ```
 
+## ヘッダー作成
+
+fontawesomeを導入
+
+```
+npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-regular-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons
+```
+
+componentを使う
+
+```
+php artisan make:component Header
+```
+
+# 4章 商品出品
+
+## 
+
+```
+php artisan make:controller SellController
+```
+
+```
+php artisan make:migration CreateAppTables
+```
+
+
+```
+php artisan make:model Models/PrimaryCategory
+php artisan make:model Models/SecondaryCategory
+php artisan make:model Models/ItemCondition
+php artisan make:model Models/Item
+
+php artisan make:seed PrimaryCategorySeeder
+php artisan make:seed SecondaryCategorySeeder
+php artisan make:seed ItemConditionSeeder
+
+php artisan make:factory PrimaryCategoryFactory --model=Models/PrimaryCategory
+php artisan make:factory SecondaryCategoryFactory --model=Models/SecondaryCategory
+php artisan make:factory ItemConditionFactory --model=Models/ItemCondition
+```
+
+seederが見つからない場合は`composer dump-autoload`
+
+```
+php artisan make:request SellRequest
+```
+
+出品リンクを作る
+
+## 出品商品一覧
+
+```
+php artisan make:controller MyPage/SoldItemsController
+```
+
+# 5章
+
+## 商品一覧
+
+## 商品検索
+
+サニタイズ
+
+全文検索のインデックスの話？
+
 ## メモ
 
 docker-composeでエラー
