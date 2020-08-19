@@ -215,6 +215,21 @@ php artisan make:controller MyPage/SoldItemsController
 
 全文検索のインデックスの話？
 
+## 商品詳細
+
+## 商品購入
+
+Pay.jpのAPIのテスト後悔鍵を使う
+https://pay.jp/d/settings
+https://pay.jp/docs/payjs-guidance
+
+phpライブラリ
+https://github.com/payjp/payjp-php/releases
+
+```
+composer require payjp/payjp-php
+```
+
 ## メモ
 
 docker-composeでエラー
