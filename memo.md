@@ -230,6 +230,14 @@ https://github.com/payjp/payjp-php/releases
 composer require payjp/payjp-php
 ```
 
+## 仕上げ
+
+トップにSoldラベル
+出品数
+売上金
+商品の表示順。Soldを後ろへ。
+サイトアイコン
+
 ## メモ
 
 docker-composeでエラー
