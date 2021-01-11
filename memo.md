@@ -85,7 +85,7 @@ Laravel動作確認
 ```
 docker-compose exec workspace bash
 composer require laravel/ui:2.1.0
-php artisan ui --auth
+php artisan ui bootstrap --auth
 npm install
 npm run dev
 php artisan migrate
